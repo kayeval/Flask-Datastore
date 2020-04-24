@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <h2>Change Name</h2>
+    </div>
+
+    Current user name: {{ user.name }}<br>
+
+    <form action="/name" method="post">
+      <label for="name">New user name:</label>
+      <input type="text" name="name" autofocus></input><br>
+
+      {% if not valid %}
+      <div style="color: red;">User name cannot be empty</div>
+      {% endif %}
+
+      <input type="hidden" name="first" value=False>
+
+      <div>
+        <input type="submit" value="Change" />
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
